@@ -1,0 +1,21 @@
+{
+    "scenario_schema": {
+        "N": {"pattern": "**.N", "type": "int"},
+        "server_type": {"pattern": "**.server_type", "type": "string"}
+    },
+    "metrics": {
+        "ResponseTime": {"module": "**.sink", "scalar_name": "lifeTime:mean", "aggr": ["none"]}
+    },
+    "analyses": {
+        "Parte1": {
+            "outfile": "results/parte1_esame250618.data",
+            "scenarios": {
+                "fixed": {},
+                "range": ["server_type", "N"]
+            },
+            "metrics": [
+                {"metric": "ResponseTime", "aggr": "none"}
+            ]
+        }
+    }
+}

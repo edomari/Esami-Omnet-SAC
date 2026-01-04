@@ -1,0 +1,23 @@
+[General]
+ned-path = .;../queueinglib
+network = esame240910
+#cpu-time-limit = 10000s
+cmdenv-config-name = esame240910Base
+#tkenv-default-config = esame240910Base
+qtenv-default-config = esame240910Base
+repeat = 5
+sim-time-limit = 10000s
+#debug-on-errors = true
+**.vector-recording = false
+
+# parameters of the simulation
+[Config esame240910Base]
+description = "Global scenario"
+**.srv.queueLength.result-recording-modes = +histogram
+**.sink.lifeTime.result-recording-modes = +histogram
+
+%for f_l in [0.7]:
+[Config esame240910_fl${int(f_l*100)}]
+extends=esame240910Base
+**.f_l=${f_l}
+%endfor

@@ -1,0 +1,20 @@
+{
+    "scenario_schema": {
+        "N": {"pattern": "**.N", "type": "int"}
+    },
+    "metrics": {
+        "ResponseTime": {"module": "**.sink", "scalar_name": "lifeTime:mean", "aggr": ["none"]}
+    },
+    "analyses": {
+        "Parte1": {
+            "outfile": "results/parte1_esame250220.data",
+            "scenarios": {
+                "fixed": {},
+                "range": ["N"]
+            },
+            "metrics": [
+                {"metric": "ResponseTime", "aggr": "none"}
+            ]
+        }
+    }
+}
