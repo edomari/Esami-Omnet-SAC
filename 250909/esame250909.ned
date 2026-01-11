@@ -12,8 +12,6 @@ network esame250909
         double lambda = default(200);
         string server_type = default("tipo1"); // "tipo1" o "tipo2"
         
-        // Forza la registrazione dei parametri come attivi
-        double effective_lambda = lambda;
         double lambda_per_server = lambda / N;
         double selected_mu = (server_type == "tipo1") ? mu1 : mu2;
 
